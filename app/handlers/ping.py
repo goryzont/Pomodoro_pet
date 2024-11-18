@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from database.settings import Settings
+from app.settings import Settings
 
 router = APIRouter(
     prefix='/ping',

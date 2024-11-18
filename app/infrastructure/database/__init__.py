@@ -1,4 +1,4 @@
-from database.database import Base
-from database.database import get_db
+from app.infrastructure.database.database import Base, get_db
 
 __all__ = ['Base', 'get_db']
+

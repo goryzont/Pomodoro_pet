@@ -1,8 +1,8 @@
 from dataclasses import dataclass
 import httpx
 
-from shema import GoogleUserData
-from database.settings import Settings
+from app.shema import GoogleUserData
+from app.settings import Settings
 
 @dataclass
 class GoogleClient:

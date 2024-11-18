@@ -1,12 +1,10 @@
 from dataclasses import dataclass
 
 from sqlalchemy import select, delete, update, insert
-from sqlalchemy.orm import Session
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from models import Categories, Tasks
-from shema import TaskCreateShema, TaskShema
-from database.database import AsyncSessionFactory
+from app.models import Categories, Tasks
+from app.shema import TaskCreateShema
 
 
 @dataclass

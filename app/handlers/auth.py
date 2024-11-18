@@ -1,13 +1,12 @@
-from http.client import responses
 from typing import Annotated
 
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import RedirectResponse
 
-from dependency import get_auth_service
-from exception import UserNotFoundException, UserNotCorrectPasswordException
-from service.auth import AuthService
-from shema import UserCreateShema, UserLoginShema
+from app.dependency import get_auth_service
+from app.exception import UserNotFoundException, UserNotCorrectPasswordException
+from app.service.auth import AuthService
+from app.shema import UserCreateShema, UserLoginShema
 
 router = APIRouter(prefix='/auth', tags=['auth'])
 

@@ -4,11 +4,11 @@ from fastapi import Depends,  security, Security, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.client import GoogleClient, YandexClient
-from database.settings import Settings
-from exception import TokenExpired, TokenNotCorrect
+from app.settings import Settings
+from .exception import TokenExpired, TokenNotCorrect
 from app.repository import TaskRepository, TaskCache, UserRepository
-from database import get_db
-from cache import get_redis_connection
+from app.infrastructure.database import get_db
+from app.infrastructure.cache import get_redis_connection
 from app.service import TaskService, UserService
 from app.service.auth import AuthService
 

@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
 
-class Category(BaseModel):
+class CategoryShema(BaseModel):
     id: int
     name: str

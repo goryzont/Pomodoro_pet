@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from shema.categories import Category
+from app.shema import CategoryShema
 
 from fixtures import categories as fixture_categories
 
@@ -9,18 +9,18 @@ router = APIRouter(
     tags=['categories']
 )
 
-@router.get('/all', response_model=list[Category])
+@router.get('/all', response_model=list[CategoryShema])
 async def get_all_categories():
     return fixture_categories
 
 
-@router.post('/', response_model=Category)
-async def create_category(category: Category):
+@router.post('/', response_model=CategoryShema)
+async def create_category(category: CategoryShema):
     fixture_categories.append(dict(category))
     return category
 
 
-@router.patch('/{category_id}', response_model=Category)
+@router.patch('/{category_id}', response_model=CategoryShema)
 async def update_categories(category_id: int, name: str):
     for category in fixture_categories:
         print(category)

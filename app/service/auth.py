@@ -1,15 +1,15 @@
 from dataclasses import dataclass
 import datetime as dt
-from datetime import timedelta, datetime
+from datetime import timedelta
 
 from jose import jwt, JWTError
 
-from client import GoogleClient, YandexClient
-from database.settings import Settings
-from exception import UserNotFoundException, UserNotCorrectPasswordException, TokenNotCorrect, TokenExpired
-from models import UserProfile
-from repository import UserRepository
-from shema import UserLoginShema, UserCreateShema
+from app.client import GoogleClient, YandexClient
+from app.settings import Settings
+from app.exception import UserNotFoundException, UserNotCorrectPasswordException, TokenNotCorrect, TokenExpired
+from app.models import UserProfile
+from app.repository import UserRepository
+from app.shema import UserLoginShema, UserCreateShema
 
 
 @dataclass

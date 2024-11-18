@@ -1,12 +1,10 @@
-import json
 from dataclasses import dataclass
 
 from sqlalchemy import insert, select
-from sqlalchemy.orm import Session
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from models import UserProfile
-from shema import UserCreateShema
+from app.models import UserProfile
+from app.shema import UserCreateShema
 
 
 @dataclass

@@ -1,8 +1,8 @@
 from dataclasses import dataclass
 
-from repository import UserRepository
-from service.auth import AuthService
-from shema import UserLoginShema, UserCreateShema
+from app.repository import UserRepository
+from app.service.auth import AuthService
+from app.shema import UserLoginShema, UserCreateShema
 
 
 @dataclass
