@@ -3,7 +3,8 @@ HOST=localhost
 PORT=8000
 
 run:
-	uvicorn main:app --host ${HOST} --port ${PORT} --reload --env-file .env
+	poetry run gunicorn main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000 -c infra/gunicorn_conf.py
+
 
 install:
 	@echo 'Install dependency ${LIBRARY}'
