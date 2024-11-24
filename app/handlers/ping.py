@@ -10,4 +10,4 @@ router = APIRouter(
 async def ping_app():
     settings = Settings()
 
-    return {'message': settings.GOOGLE_TOKEN_ID}
+    return {'message': settings.GOOGLE_TOKEN_URL}

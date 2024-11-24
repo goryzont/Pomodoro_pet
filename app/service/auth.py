@@ -22,19 +22,17 @@ class AuthService:
     async def google_auth(self, code: str):
         user_data = await self.google_client.get_user_info(code)
 
-        if user := await self.user_repository.get_user_by_email(user_data.email):
+        if user := await self.user_repository.get_user_by_email(email=user_data.email):
             access_token = self.generate_access_token(user_id=user.id)
-            print('user_login_google')
             return UserLoginShema(user_id=user.id, access_token=access_token)
 
         create_user_data = UserCreateShema(
             google_access_token=user_data.access_token,
             email=user_data.email,
-            name=user_data.name
+            name=user_data.name,
         )
         created_user = await self.user_repository.create_user(create_user_data)
         access_token = self.generate_access_token(user_id=created_user.id)
-        print('user_create_google')
         return UserLoginShema(user_id=created_user.id, access_token=access_token)
 
     async def yandex_auth(self, code: str):
@@ -77,7 +75,7 @@ class AuthService:
             raise UserNotCorrectPasswordException
 
     def generate_access_token(self, user_id: int) -> str:
-        expires_date_unix = (dt.datetime.now() + timedelta(days=7)).timestamp()
+        expires_date_unix = (dt.datetime.now(tz=dt.UTC) + timedelta(days=7)).timestamp()
         token = jwt.encode({'user_id': user_id,
                             'expire': expires_date_unix },
                            self.settings.JWT_SECRET_KEY,

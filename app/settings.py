@@ -20,9 +20,9 @@ class Settings(BaseSettings):
     GOOGLE_REDIRECT_URI: str = ''
     GOOGLE_TOKEN_URL: str = 'https://accounts.google.com/o/oauth2/token'
 
-    YANDEX_CLIENT_ID: str
-    YANDEX_SECRET_KEY: str
-    YANDEX_REDIRECT_URI: str
+    YANDEX_CLIENT_ID: str = ''
+    YANDEX_SECRET_KEY: str = ''
+    YANDEX_REDIRECT_URI: str = ''
     YANDEX_TOKEN_URL: str = 'https://oauth.yandex.ru/token'
 
 
