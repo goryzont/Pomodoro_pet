@@ -6,6 +6,8 @@ from app.models.user import UserProfile
 
 faker = FakerFactory.create()
 
+EXISTS_GOOGLE_USER_ID = 20
+EXISTS_GOOGLE_USER_EMAIL = 'test@gmail.com'
 
 @register(_name="user_profile")
 class UserProfileFactory(factory.Factory):

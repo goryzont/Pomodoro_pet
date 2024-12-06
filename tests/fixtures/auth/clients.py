@@ -10,6 +10,7 @@ from faker import Factory as FakerFactory
 
 from app.settings import Settings
 from app.shema import GoogleUserData, YandexUserData
+from tests.fixtures.users.user_model import EXISTS_GOOGLE_USER_ID, EXISTS_GOOGLE_USER_EMAIL
 
 faker = FakerFactory.create()
 
@@ -50,8 +51,8 @@ def yandex_client():
 
 def google_user_info_data() -> GoogleUserData:
     return GoogleUserData(
-        id=faker.random_int(),
-        email=faker.email(),
+        id=EXISTS_GOOGLE_USER_ID,
+        email=EXISTS_GOOGLE_USER_EMAIL,
         name=faker.name(),
         verified_email=True,
         access_token=faker.sha256()
